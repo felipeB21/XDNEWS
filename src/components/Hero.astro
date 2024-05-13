@@ -1,0 +1,30 @@
+---
+import Card from "./Card.astro";
+import MainCard from "./MainCard.astro";
+---
+
+<div class="flex gap-10">
+  <MainCard
+    title="Everything ready for the launch of XDefiant"
+    description={`Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem adipisci
+        facilis quo porro laborum architecto non tempore sunt, tempora mollitia
+        facere fuga ut officiis voluptatem earum, amet neque soluta ducimus.`}
+    path="/xdefiant-preseason"
+    image="/preseason.png"
+  />
+  <div class="border border-neutral-800"></div>
+  <div class="flex flex-col gap-10">
+    <Card
+      title="Test"
+      description={`Lorem ipsum`}
+      path="/test"
+      image="/preseason.png"
+    />
+    <Card
+      title="Testdsadsadsadasdasdsadada"
+      description={`Lorem ipsumdsasadsadsadasdsadasdsadsadsadsadsadsadsadsa`}
+      path="/test"
+      image="/preseason.png"
+    />
+  </div>
+</div>

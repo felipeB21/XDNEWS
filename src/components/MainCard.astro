@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  path: string;
+}
+
+const { title, description, image, path } = Astro.props;
+---
+
+<section class="xl:w-[70vw] h-max">
+  <div class="xl:flex justify-between">
+    <div class="flex flex-col xl:justify-between gap-2 xl:gap-0">
+      <h2 class="text-xl font-bold uppercase max-w-[300px]">
+        {title}
+      </h2>
+      <p class="text-neutral-300 max-w-[300px] flex-wrap">
+        {description}
+      </p>
+      <a
+        class="py-2 px-5 rounded-full bg-neutral-950 w-max hover:bg-neutral-950/50 xl:block hidden"
+        href={path}>Continue reading</a
+      >
+    </div>
+    <img class="rounded-md w-[300px] xl:w-[350px] mt-2 xl:mt-0" src={image} />
+  </div>
+</section>
