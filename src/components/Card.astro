@@ -10,11 +10,11 @@ const { title, description, image, path } = Astro.props;
 ---
 
 <section
-  class="w-[30vw] transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105"
+  class="transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105"
 >
   <a href={path}>
     <div class="flex flex-col">
-      <img class="rounded-md" src={image} />
+      <img class="rounded-md w-[300px]" src={image} />
       <div class="flex flex-col gap-1 mt-2">
         <h2 class="font-bold uppercase">
           {title}
