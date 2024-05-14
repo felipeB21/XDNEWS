@@ -1,0 +1,21 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { NEWS } from "../../consts/News";
+import SlugNews from "../../components/SlugNews.astro";
+
+const slug = Astro.params.slug;
+
+const article = NEWS.find((art) => art.id === slug);
+
+if (article == undefined) {
+  return new Response(JSON.stringify("Article not found"), { status: 404 });
+}
+---
+
+<Layout title={`News about ${slug}`}>
+  <SlugNews
+    title={article.title}
+    description={article.description}
+    image={article.image}
+  />
+</Layout>

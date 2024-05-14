@@ -1,0 +1,21 @@
+---
+import Left from "./icons/Left.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+}
+
+const { title, description, image } = Astro.props;
+---
+
+<div class="flex flex-col gap-5">
+  <a
+    class="py-1 px-3 border border-neutral-600 w-max rounded flex items-center gap-2"
+    href="/"><Left /> Go back</a
+  >
+  <h2 class="font-bold text-neutral-200">{title}</h2>
+  <img class="w-auto" src={image} alt={`Image of ${title}`} />
+  <p>{description}</p>
+</div>
