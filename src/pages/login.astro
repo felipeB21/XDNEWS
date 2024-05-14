@@ -1,0 +1,71 @@
+---
+import "@fontsource-variable/nunito";
+import Google from "../components/icons/Google.astro";
+import GitHub from "../components/icons/GitHub.astro";
+import Layout from "../layouts/Layout.astro";
+
+import { getSession } from "auth-astro/server";
+const session = await getSession(Astro.request);
+
+if (session) {
+  return Astro.redirect("/ ");
+}
+---
+
+<Layout title="Login">
+  <div class="flex items-center justify-center h-[50vh]">
+    <div class="flex flex-col gap-10">
+      <div>
+        <h2 class="font-medium text-2xl">Sign in page</h2>
+        <p class="text-neutral-400">Login to access exclusive content</p>
+      </div>
+      <div class="flex flex-col items-center justify-center gap-3">
+        <button id="google" class="login"><Google /> Google</button>
+        <p class="text-neutral-500 font-bold">or</p>
+        <button id="github" class="login"><GitHub /> GitHub</button>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const { signIn } = await import("auth-astro/client");
+
+  const google = document.querySelector("#google");
+  const github = document.querySelector("#github");
+
+  google?.addEventListener("click", async (event) => {
+    event.preventDefault();
+    await signIn("google", {
+      callbackUrl: "/",
+    });
+  });
+
+  github?.addEventListener("click", async (event) => {
+    event.preventDefault();
+    await signIn("github", {
+      callbackUrl: "/",
+    });
+  });
+</script>
+
+<style>
+  body {
+    font-family: "Nunito Variable", sans-serif;
+  }
+  .login {
+    display: flex;
+    width: 250px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: rgb(22, 22, 22);
+    font-weight: bold;
+    background-color: #ffffff;
+    padding: 5px 40px;
+    border-radius: 10px;
+  }
+  .login:hover {
+    background-color: #e9e9e9;
+  }
+</style>

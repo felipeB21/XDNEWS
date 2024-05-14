@@ -9,22 +9,22 @@ interface Props {
 const { title, description, image, path } = Astro.props;
 ---
 
-<section class="h-max w-max">
-  <div class="xl:flex gap-5">
-    <div class="flex flex-col gap-4">
-      <div class="flex flex-col gap-2">
-        <h2 class="text-xl font-bold uppercase">
-          {title}
-        </h2>
-        <p class="text-neutral-300 flex-wrap">
-          {description}
-        </p>
+<section
+  class="h-max w-max transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105"
+>
+  <a href={`/news${path}`}>
+    <div class="xl:flex gap-5">
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-wrap flex-col gap-2">
+          <h2 class="text-xl font-bold uppercase">
+            {title}
+          </h2>
+          <p class="text-neutral-300 flex-wrap">
+            {description}
+          </p>
+        </div>
       </div>
-      <a
-        class="py-2 px-5 rounded-full bg-neutral-950 w-max hover:bg-neutral-950/50 xl:block hidden"
-        href={path}>Continue reading</a
-      >
+      <img class="rounded-md xl:w-[300px] mt-2 xl:mt-0" src={image} />
     </div>
-    <img class="rounded-md w-[300px] xl:w-[350px] mt-2 xl:mt-0" src={image} />
-  </div>
+  </a>
 </section>
