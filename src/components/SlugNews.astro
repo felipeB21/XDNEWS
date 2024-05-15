@@ -15,7 +15,9 @@ const { title, description, image } = Astro.props;
     class="py-1 px-3 border border-neutral-600 w-max rounded flex items-center gap-2"
     href="/"><Left /> Go back</a
   >
-  <h2 class="font-bold text-neutral-200">{title}</h2>
-  <img class="w-auto" src={image} alt={`Image of ${title}`} />
-  <p>{description}</p>
+  <h2 class="font-bold text-3xl py-2">{title}</h2>
+  <div class="flex gap-10 mt-4 border-b border-neutral-700 pb-10">
+    <img class="w-[600px]" src={image} alt={`Image of ${title}`} />
+    <p class="flex-wrap">{description}</p>
+  </div>
 </div>
