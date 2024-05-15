@@ -42,11 +42,16 @@ const session = await getSession(Astro.request);
       {
         session ? (
           <div>
-            <img
-              class="rounded-full w-[34px]"
-              src={session.user?.image}
-              alt="User img"
-            />
+            <button id="profile" class="relative">
+              <img
+                class="rounded-full w-[34px]"
+                src={session.user?.image}
+                alt="User img"
+              />
+            </button>
+            <button class="logout-div absolute mt-10 w-max bg-neutral-50 p-3 text-neutral-800 font-bold rounded-r-xl rounded-bl-xl hidden hover:bg-neutral-200">
+              <p>Sign out</p>
+            </button>
           </div>
         ) : (
           <a
@@ -60,3 +65,23 @@ const session = await getSession(Astro.request);
     </div>
   </div>
 </header>
+
+<script>
+  import { signOut } from "auth-astro/client";
+
+  const profile: HTMLElement | null = document.querySelector("#profile");
+  const logoutDiv: HTMLElement | null = document.querySelector(".logout-div");
+
+  profile?.addEventListener("click", () => {
+    if (logoutDiv) {
+      logoutDiv.classList.toggle("hidden");
+    }
+  });
+
+  logoutDiv?.addEventListener("click", async (event) => {
+    event.preventDefault();
+    await signOut({
+      callbackUrl: "/",
+    });
+  });
+</script>
