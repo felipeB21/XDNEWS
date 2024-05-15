@@ -3,7 +3,9 @@ import Card from "./Card.astro";
 import MainCard from "./MainCard.astro";
 ---
 
-<div class="flex gap-10">
+<div
+  class="flex gap-10 animate-fade-up animate-duration-1000 animate-delay-100"
+>
   <MainCard
     title="Everything ready for the launch of XDefiant"
     description={`The XDefiant preseason will be released this May 21st, 2024 at 10AM PT/1PM ET. A strong hype has been created for the long-awaited release of XDefiant and fans of the video game can't wait to play it...`}
@@ -21,7 +23,7 @@ import MainCard from "./MainCard.astro";
     <Card
       title="What is the best class in xdefiant?"
       description={`We have collected information from the best XDefiant players who have talked about their experience with each of the factions, thanks to that we were able to make a tier list of the best factions.`}
-      path="/test"
+      path="/best-class"
       image="/best-class.png"
     />
   </div>
